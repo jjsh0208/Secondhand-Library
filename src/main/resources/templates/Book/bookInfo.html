@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구제서재</title>
+    <link rel="stylesheet" th:href="@{/css/Book/bookInfo.css}" />
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1 class="title">구제서재</h1>
+        <div class="header-controls">
+            <p class="subtitle">나만의 구제서재를 만들어보세요!</p>
+            <button class="menu-button">
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                >
+                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="search-bar">
+        <input
+                class="search-input"
+                placeholder="검색어를 입력하세요"
+                type="search"
+        />
+        <button class="search-button">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+            >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+            </svg>
+        </button>
+    </div>
+    <section class="main-content">
+        <div class="book-details">
+            <div class="book-image">
+                <img
+                        th:src="${bookEntity.coverImg}"
+                        alt="Book cover"
+                />
+                <button class="wishlist-button">
+                    <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="w-6 h-6"
+                    >
+                        <path
+                                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                        ></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="book-info">
+                <h2 class="book-title" th:text="${bookEntity.bookName}"></h2>
+                <p class="book-price" th:text="'₩' + ${bookEntity.price}"></p>
+                <p class="book-author" th:text="${bookEntity.author}"></p>
+                <div class="bookmark-section">
+                    <label for="preference" class="bookmark-label">줄거리</label>
+                    <div
+                            id="preference"
+                            class="bookmark-text"
+                            th:utext="${bookEntity.description}"
+                    ></div>
+                </div>
+                <a class="stock-button" th:href="@{/book/used-inventory-check/{isbn}(isbn=${bookEntity.isbn})}">재고 확인</a>
+            </div>
+        </div>
+        <div class="book-list">
+            <div class="book-item">
+                <img
+                        src="/placeholder.svg"
+                        alt="Book cover"
+                        width="80"
+                        height="80"
+                />
+                <div class="book-description">
+                    <h3 class="book-item-title">
+                        어느 하루 눈부시지 않은 날이 없었다
+                    </h3>
+                    <p class="book-item-text">
+                        매일 하루 끝에 나와 같이 있어주고 알아주는 드라마 한 편이 있다면
+                        인생이 조금은 살만하다는 생각이 든다. 오늘 하루만큼은
+                        행복해졌음을 만끽할 수 있는 사람들에게 이 책을 권합니다. 지친
+                        삶에 위로가 되는 드라마 속 대사 한마디를 발견할 수 있을
+                        것입니다.
+                    </p>
+                </div>
+                <button class="view-button">보기</button>
+            </div>
+            <div class="book-item">
+                <img
+                        src="/placeholder.svg"
+                        alt="Book cover"
+                        width="80"
+                        height="80"
+                />
+                <div class="book-description">
+                    <h3 class="book-item-title">강인함의 힘</h3>
+                    <p class="book-item-text">
+                        성취감이란 무엇인가? 실패의 승리자는 누구인가? 강인한 자가 되어
+                        내일을 위한 힘을 받다. 더 큰 성취를 위한 새로운 과정을 다룬
+                        책입니다.
+                    </p>
+                </div>
+                <button class="view-button">보기</button>
+            </div>
+            <div class="book-item">
+                <img
+                        src="/placeholder.svg"
+                        alt="Book cover"
+                        width="80"
+                        height="80"
+                />
+                <div class="book-description">
+                    <h3 class="book-item-title">일산 초등학교 대백과</h3>
+                    <p class="book-item-text">
+                        모든 것이 이해하기 쉬운 예비 엄마를 위한 초등 교육을 위한 필수
+                        도서입니다. 애가 커서 받아온 도움들이 되었습니다!
+                    </p>
+                </div>
+                <button class="view-button">보기</button>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>

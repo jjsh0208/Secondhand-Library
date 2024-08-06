@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card Form</title>
+    <link rel="stylesheet" th:href="@{/css/Quote/QuoteForm.css}" />
+</head>
+<body>
+<div class="card">
+    <div class="imgbox">
+        <img
+                alt="Profile picture"
+                class="card-image"
+                th:src="${book.coverImg}"
+        />
+    </div>
+    <div class="card-content">
+        <form class="card-form" th:action="@{'/book/' + ${book.bookId} + '/quoteForm'}"  method="post">
+            <label for="author" class="form-label">Character / Author</label>
+            <input type="text" name="author" id="author" class="form-input" />
+            <label for="quote" class="form-label">Quote</label>
+            <textarea
+                    name="quote"
+                    id="quote"
+                    class="form-textarea"
+                    rows="3"
+                    placeholder="Enter a memorable quote here"
+            >
+          </textarea>
+
+            <div class="card-buttons">
+                <button type="submit" class="card-button card-button-primary">
+                    Submit
+                </button>
+                <button type="button" class="card-button card-button-secondary">
+                    Back
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

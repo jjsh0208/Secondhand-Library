@@ -1,0 +1,214 @@
+@font-face {
+    font-family: 'MaruBuri';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2) format("woff2"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.ttf) format("truetype");
+}
+* {
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'MaruBuri',  sans-serif; /* 폰트 적용 */
+}
+
+body {
+
+    background: #97b4e1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    min-height: 100vh;
+    padding: 20px;
+    background: #F1FAFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* 그림자 효과 */
+    border-radius: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 16px 0;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.subtitle {
+    font-size: 14px;
+}
+
+.menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 16px 0;
+    position: relative; /* Make sure to set position relative for the pseudo-element */
+}
+
+.search-bar::after {
+    content: "";
+    position: absolute;
+    bottom: -17px; /* Adjust this value to control the distance from the bottom */
+    left: 0;
+    width: 100%;
+    max-width: 1200px; /* Same as the max-width of the .search-bar */
+    border-bottom: 1px solid black;
+}
+
+.search-input {
+    flex: 1;
+    height: 40px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.main-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.product-collection {
+    padding: 12px 0;
+    width: 100%;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.quantity-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    height: 50px;
+    width: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #96b3df;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+.title-content{
+    font-size: 20px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+.quantity-button:hover {
+    background-color: #6694d8;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.product {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.product-link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.product-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 16px;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    transition: opacity 0.3s;
+}
+
+.product:hover .product-info {
+    opacity: 0.9;
+}
+
+.product-title {
+    font-weight: 600;
+    margin: 0;
+}
+
+.product-price {
+    font-weight: 600;
+    margin: 0;
+}

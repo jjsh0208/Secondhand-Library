@@ -1,0 +1,109 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #97b4e1; /* 변경된 색상 코드 */
+}
+
+.container {
+    width: 50%; /* 원하는 너비로 설정 */
+    min-height: 90vh; /* 최소 높이 설정 */
+    background: #fff;
+    text-align: center;
+    border-radius: 15px;
+    padding: 50px 35px 10px 35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* 그림자 효과 */
+}
+.container header {
+    font-size: 35px;
+    font-weight: 600;
+    margin: 0 0 30px 0;
+    position: relative;
+    padding-bottom: 10px; /* 여유 공간을 추가하여 텍스트와 선 사이에 간격을 둠 */
+}
+
+.container header::after {
+    content: '';
+    display: block;
+    width: 80%; /* 원하는 가로 크기로 설정 */
+    height: 2px; /* 선의 두께 설정 */
+    background-color: black; /* 선의 색상 설정 */
+    margin: 10px auto 0; /* 상단에 약간의 간격을 두고 중앙 정렬 */
+}
+
+
+.books ul {
+    list-style: none;
+    padding: 0;
+}
+
+.books li {
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative; /* Ensure li is a reference point for absolute positioning */
+    min-height: 250px; /* Adjust as needed for your design */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+
+}
+
+.books img {
+    min-width: 200px;
+    max-width: 200px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* 그림자 효과 */
+
+}
+
+.book-details {
+    flex-grow: 1;
+    text-align: left;
+    display: flex;
+    padding-left: 20px; /* 왼쪽 패딩을 추가하여 내용을 더 떨어지게 함 */
+    flex-direction: column; /* Stack child elements vertically */
+    justify-content: space-between; /* Distribute space between items */
+    position: relative; /* position을 relative로 설정하여 버튼 컨테이너를 절대 위치로 배치 */
+}
+
+.book-details p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.bookTitle {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 25px !important;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    margin-top: 100px; /* Space between the content and buttons */
+}
+
+.btn {
+    background-color: #96b3df; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-left: 10px; /* Space between buttons */
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 150px;
+    min-height: 35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+
+}
+
+.btn:hover {
+    background-color: #7cafdf; /* Button hover color */
+}

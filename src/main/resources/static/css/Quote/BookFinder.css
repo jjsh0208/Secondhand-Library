@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin-top: 100px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    flex: 1;
+    height: 60px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    padding: 0 12px;
+    font-size: 20px;
+}
+
+.search-button {
+    height: 60px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0 16px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.content {
+    margin-top: 24px;
+    height: 600px; /* Set a fixed height for the content */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.result-item {
+    display: flex;
+    background-color: #f8f8f8;
+    padding: 16px;
+    border-radius: 4px;
+    align-items: center;
+    border-bottom: 1px solid #ddd; /* Add bottom border for separation */
+}
+
+.book-image {
+    flex-shrink: 0;
+    margin-right: 16px;
+}
+
+.book-image img {
+    width: 60px; /* Set a fixed width for the image */
+    height: auto;
+    border-radius: 4px;
+}
+
+.book-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure book-info takes the remaining space */
+}
+
+.result-title {
+    font-size: 18px;
+    margin: 0;
+    flex-grow: 1; /* Make title take the available space */
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}

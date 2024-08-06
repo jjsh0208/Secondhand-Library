@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>중고서재</title>
+    <link rel="stylesheet" th:href="@{/css/Book/multiStepForm.css}" />
+    <link rel="stylesheet" th:href="@{/css/Book/formGrid.css}" />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    />
+</head>
+<body>
+<div id="loading" style="display: none;">
+    <img th:src="@{/img/multiStepForm/loding.gif}" alt="Loading..." />
+</div>
+<div class="container">
+    <header>나에게 어울리는 책 추천</header>
+
+    <div class="progress-bar">
+        <div class="step">
+            <p>성별</p>
+            <div class="bullet">
+                <span>1</span>
+            </div>
+            <div class="check fas fa-check"></div>
+        </div>
+        <div class="step">
+            <p>연령대</p>
+            <div class="bullet">
+                <span>2</span>
+            </div>
+            <div class="check fas fa-check"></div>
+        </div>
+        <div class="step">
+            <p>지역</p>
+            <div class="bullet">
+                <span>3</span>
+            </div>
+            <div class="check fas fa-check"></div>
+        </div>
+        <div class="step">
+            <p>관심사</p>
+            <div class="bullet">
+                <span>4</span>
+            </div>
+            <div class="check fas fa-check"></div>
+        </div>
+    </div>
+    <div class="form-outer">
+        <form th:action="@{/book/recommendations}" method="post">
+            <!-- Page 1 -->
+            <div class="page slide-page">
+                <div class="title">나의 성별은?</div>
+                <input type="hidden" name="sex" id="sex" />
+                <div class="grid-select">
+                    <div
+                            class="grid-item"
+                            data-value="0"
+                            data-description="남자"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/male.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="1"
+                            data-description="여자"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/femal.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="2"
+                            data-description="기타"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/other.jpg} + ')'"
+                    ></div>
+                </div>
+                <div class="field">
+                    <button class="firstNext next">Next</button>
+                </div>
+            </div>
+
+            <!-- Page 2 -->
+            <div class="page">
+                <div class="title">나의 연령대는 ?</div>
+                <input type="hidden" name="age" id="age" />
+                <div class="grid-select">
+                    <div
+                            class="grid-item"
+                            data-value="8"
+                            data-description="초등 (8~13 세)"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/young.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="14"
+                            data-description="청소년 (14~19 세)"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/teenager.jpg} + ')'"
+
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="20"
+                            data-description="20대"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/adult.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="30"
+                            data-description="30대"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/adult.jpg} + ')'"
+
+
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="40"
+                            data-description="40대"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/adult.jpg} + ')'"
+
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="50"
+                            data-description="50대"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/adult.jpg} + ')'"
+
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="60"
+                            data-description="60대"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/older.jpg} + ')'"
+
+                    ></div>
+                </div>
+                <div class="field btns">
+                    <button class="prev-1 prev">Previous</button>
+                    <button class="next-1 next">Next</button>
+                </div>
+            </div>
+
+            <!-- Page 3 -->
+            <div class="page">
+                <div class="title">나의 지역은?</div>
+                <input type="hidden" name="location" id="location" />
+                <div class="grid-select">
+                    <div
+                            class="grid-item"
+                            data-value="11"
+                            data-description="서울"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/city.jpg} + ')'"
+
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="21"
+                            data-description="부산"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/city.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="22"
+                            data-description="대구"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/city.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="23"
+                            data-description="인천"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/city.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="24"
+                            data-description="광주"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/city.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="25"
+                            data-description="대전"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/city.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="26"
+                            data-description="울산"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/city.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="31"
+                            data-description="기타"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/city.jpg} + ')'"
+                    ></div>
+                </div>
+                <div class="field btns">
+                    <button class="prev-2 prev">Previous</button>
+                    <button class="next-2 next">Next</button>
+                </div>
+            </div>
+
+            <!-- Page 4 -->
+            <div class="page">
+                <div class="title">최근 나의 관심사는?</div>
+                <input type="hidden" name="Interest" id="Interest" />
+                <div class="grid-select">
+                    <div
+                            class="grid-item"
+                            data-value="1"
+                            data-description="철학에 대해 더 알고 싶으신가요?"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/book.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="2"
+                            data-description="종교에 대해 더 알고 싶으신가요?"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/book.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="3"
+                            data-description="사회적 문제에 관심이 있으신가요?"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/book.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="9"
+                            data-description="역사에 대해 배우는 것을 좋아하시나요?"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/book.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="5"
+                            data-description="기술적인 것에 흥미가 있으신가요?"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/book.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="6"
+                            data-description="예술 작품 감상에 관심이 있으신가요?"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/book.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="8"
+                            data-description="문학 작품을 즐겨 읽으시나요?"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/book.jpg} + ')'"
+                    ></div>
+                    <div
+                            class="grid-item"
+                            data-value="0"
+                            data-description="관심사가 없어요"
+                            th:style="'background-image: url(' + @{/img/multiStepForm/book.jpg} + ')'"
+                    ></div>
+                </div>
+                <div class="field btns">
+                    <button class="prev-3 prev">Previous</button>
+                    <button class="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script th:src="@{/js/multiStepForm.js}"></script>
+<script th:src="@{/js/formSelect.js}"></script>
+</body>
+</html>

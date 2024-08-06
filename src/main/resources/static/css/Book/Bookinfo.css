@@ -1,0 +1,241 @@
+@font-face {
+    font-family: 'MaruBuri';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2) format("woff2"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.ttf) format("truetype");
+}
+* {
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'MaruBuri',  sans-serif; /* 폰트 적용 */
+}
+
+body {
+
+    background: #97b4e1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    min-height: 100vh;
+    padding: 20px;
+    background: #F1FAFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* 그림자 효과 */
+    border-radius: 10px;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 16px 0;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.subtitle {
+    font-size: 14px;
+}
+
+.menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 16px 0;
+}
+
+.search-input {
+    flex: 1;
+    height: 40px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.main-content {
+    padding: 5px;
+    width: 100%;
+    max-width: 1200px;
+    border: 1px solid #ccc; /* 테두리 추가 */
+    border-radius: 10px; /* 둥근 모서리 설정 */
+}
+
+.book-details {
+    display: flex;
+    flex-direction: row; /* Changed from column to row */
+    gap: 16px;
+    /*border-bottom: 1px solid #ccc;*/
+    /*padding-bottom: 16px;*/
+    padding: 20px;
+}
+
+.book-image {
+    position: relative; /* Added to position wishlist button */
+    width: 50%; /* Adjust width to fit the layout */
+}
+
+.book-image img {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-left: 32%;
+}
+
+.wishlist-button {
+    position: absolute; /* Changed to absolute positioning */
+    bottom: 16px; /* Positioned at the bottom */
+    left: 16px; /* Positioned to the left */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: none;
+    cursor: pointer;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 50%; /* Adjust width to fit the layout */
+}
+
+.book-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.book-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.book-author {
+    font-size: 16px;
+}
+
+.bookmark-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.bookmark-label {
+    font-size: 14px;
+    font-weight: medium;
+}
+
+.bookmark-text {
+    width: 100%;
+    min-height: 100px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.stock-button {
+    width: fit-content;
+    padding: 8px 16px;
+    background: #96b3df;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.stock-button:hover{
+    background: #6694d8;
+}
+
+.book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.book-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.book-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.book-description {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.book-item-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.book-item-text {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.view-button {
+    width: fit-content;
+    padding: 8px 16px;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+}

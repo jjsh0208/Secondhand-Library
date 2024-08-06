@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
+    <title>구제서재</title>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1 class="title">구제서재</h1>
+        <div class="header-controls">
+            <p class="subtitle">나만의 구제서재를 만들어보세요!</p>
+            <button class="menu-button">
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                >
+                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="search-bar">
+        <input
+                class="search-input"
+                placeholder="검색어를 입력하세요"
+                type="search"
+        />
+        <button class="search-button">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+            >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+            </svg>
+        </button>
+    </div>
+    <section class="product-collection">
+        <div class="main-content">
+            <div class="button-group">
+                <button class="quantity-button">100</button>
+                <button class="quantity-button">200</button>
+                <button class="quantity-button">300</button>
+                <button class="quantity-button">400</button>
+                <button class="quantity-button">500</button>
+                <button class="quantity-button">600</button>
+                <button class="quantity-button">700</button>
+                <button class="quantity-button">800</button>
+            </div>
+            <div class="title-content">오늘의 인기 도서</div>
+            <div class="product-grid">
+                <div class="product">
+                    <a href="#" class="product-link">
+                        <img
+                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
+                                alt="Beach Bliss Flip-Flops"
+                                class="product-image"
+                        />
+                        <div class="product-info">
+                            <h3 class="product-title">Beach Bliss Flip-Flops</h3>
+                            <h4 class="product-price">$19.99</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#" class="product-link">
+                        <img
+                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
+                                alt="Fruit Fusion Water Bottle"
+                                class="product-image"
+                        />
+                        <div class="product-info">
+                            <h3 class="product-title">Fruit Fusion Water Bottle</h3>
+                            <h4 class="product-price">$12.99</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#" class="product-link">
+                        <img
+                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
+                                alt="Adventure-Ready Backpack"
+                                class="product-image"
+                        />
+                        <div class="product-info">
+                            <h3 class="product-title">Adventure-Ready Backpack</h3>
+                            <h4 class="product-price">$19.99</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#" class="product-link">
+                        <img
+                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
+                                alt="Island Vibes Bluetooth Speaker"
+                                class="product-image"
+                        />
+                        <div class="product-info">
+                            <h3 class="product-title">Island Vibes Bluetooth Speaker</h3>
+                            <h4 class="product-price">$59.99</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#" class="product-link">
+                        <img
+                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
+                                alt="Cozy Blanket"
+                                class="product-image"
+                        />
+                        <div class="product-info">
+                            <h3 class="product-title">Cozy Blanket</h3>
+                            <h4 class="product-price">$29.99</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#" class="product-link">
+                        <img
+                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
+                                alt="Autumn Mug"
+                                class="product-image"
+                        />
+                        <div class="product-info">
+                            <h3 class="product-title">Autumn Mug</h3>
+                            <h4 class="product-price">$12.99</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#" class="product-link">
+                        <img
+                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
+                                alt="Fall Fragrance Candle"
+                                class="product-image"
+                        />
+                        <div class="product-info">
+                            <h3 class="product-title">Fall Fragrance Candle</h3>
+                            <h4 class="product-price">$16.99</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#" class="product-link">
+                        <img
+                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
+                                alt="Autumn Leaves Wall Art"
+                                class="product-image"
+                        />
+                        <div class="product-info">
+                            <h3 class="product-title">Autumn Leaves Wall Art</h3>
+                            <h4 class="product-price">$39.99</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>

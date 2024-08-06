@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: Secondhand-Library
+  datasource:
+    url: jdbc:postgresql://localhost:5432/secondhand_library
+    username: postgres
+    password: 0208
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    database: postgresql
+    hibernate:
+      ddl-auto: create
+  web:
+    resources:
+      static-locations: classpath:/static/
+
+aladdin:
+  api:
+    key: "ttbjjsh02081144001"
+
+library:
+  api:
+    key: "6cbf9798e0f9b2cb2d094901a7bc844cbf54e716d641ccab354f57e694dc8b91"

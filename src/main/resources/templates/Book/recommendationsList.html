@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommendations</title>
+    <link rel="stylesheet" th:href="@{/css/Book/recommendationsList.css}" />
+</head>
+<body>
+<div class="container">
+    <header>📖이런 책은 어떠신가요?</header>
+    <!-- Check if there are any recommended books -->
+    <div th:if="${#lists.isEmpty(recommendedBooks)}">
+        <p>추천된 도서가 없습니다.</p>
+    </div>
+    <div th:if="${!#lists.isEmpty(recommendedBooks)}" class="books">
+        <ul>
+            <!-- Iterate over the list of books and display them -->
+            <li th:each="book : ${recommendedBooks}">
+                <img th:src="${book.coverImg}" alt="Book cover">
+                <div class="book-details">
+                    <p class="bookTitle" th:text="'제목 : ' + ${book.bookName}"></p>
+                    <p th:text="'지은이  : ' + ${book.author}"></p>
+                    <p th:text="'출시년도 : ' + ${book.pubDate}"></p>
+                    <div class="button-container">
+                        <button class="btn" th:onclick="'location.href=\'/book/' + ${book.bookId} + '\''">상세보기</button>
+                        <button class="btn">중고 재고확인</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
