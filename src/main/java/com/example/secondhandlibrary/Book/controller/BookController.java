@@ -1,4 +1,4 @@
-package com.example.secondhandlibrary.Book;
+package com.example.secondhandlibrary.Book.controller;
 
 import com.example.secondhandlibrary.Book.DTO.MemberSelectionDTO;
 import com.example.secondhandlibrary.Book.Entity.BookEntity;

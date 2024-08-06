@@ -15,6 +15,10 @@ spring:
     resources:
       static-locations: classpath:/static/
 
+kakao:
+  client_id: "ec441b5cf247c7da0d792b6a80531331"
+  redirect_uri: "http://localhost:8080/kakaoLogin"
+
 aladdin:
   api:
     key: "ttbjjsh02081144001"
