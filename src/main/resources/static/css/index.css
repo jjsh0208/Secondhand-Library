@@ -87,7 +87,7 @@ body {
 
 .search-input {
     flex: 1;
-    height: 40px;
+    height: 50px;
     padding: 8px 16px;
     border: 1px solid #ccc;
     border-radius: 20px;
@@ -140,6 +140,7 @@ body {
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+    text-decoration-line: none;
 }
 .title-content{
     font-size: 20px;
@@ -171,36 +172,37 @@ body {
 }
 
 .product-link {
-    display: block;
-    position: relative;
-    text-decoration: none;
-    color: inherit;
+    display: block; /* Ensure the link takes up the full width and height of its parent */
+    position: relative; /* Make sure positioning works properly for children */
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Inherit text color from parent */
+    width: 100%; /* Ensure the link fills the width of its parent */
+    height: 100%; /* Ensure the link fills the height of its parent */
 }
 
 .product-image {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 100%; /* Ensure image fills the width of the parent */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .product-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 16px;
-    opacity: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    transition: opacity 0.3s;
+    position: absolute; /* Position info absolutely within the product */
+    bottom: 0; /* Align to the bottom */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width of parent */
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: #fff; /* White text */
+    padding: 16px; /* Padding inside info */
+    opacity: 0; /* Initially hidden */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Vertical stack of elements */
+    align-items: flex-start; /* Align items to the start */
+    gap: 8px; /* Space between elements */
+    transition: opacity 0.3s; /* Smooth transition for opacity */
 }
 
 .product:hover .product-info {
-    opacity: 0.9;
+    opacity: 0.9; /* Show info on hover */
 }
 
 .product-title {
@@ -211,4 +213,103 @@ body {
 .product-price {
     font-weight: 600;
     margin: 0;
+}
+
+
+/* 페이징 컨테이너 중앙 정렬 */
+.pagination {
+    list-style-type: none; /* 리스트 점 제거 */
+    padding: 10px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+
+}
+
+/* 페이지 아이템 스타일 */
+.pagination-item {
+    margin: 0 4px; /* 페이지 아이템 간격 */
+}
+
+/* 페이지 링크 스타일 */
+.pagination-link {
+    display: block; /* 링크 전체를 클릭 가능하게 설정 */
+    text-decoration: none; /* 밑줄 제거 */
+    color: #007bff; /* 링크 색상 */
+    padding: 8px 16px; /* 링크 내부 여백 */
+    border-radius: 4px; /* 링크 둥근 모서리 */
+    font-size: 14px; /* 링크 텍스트 크기 */
+    transition: background-color 0.3s, color 0.3s; /* 색상 전환 효과 */
+}
+
+/* 페이지 링크 기본 스타일 */
+.pagination-link:hover,
+.pagination-link:focus {
+    background-color: #f0f0f0; /* 호버 및 포커스 시 배경색 */
+    color: #0056b3; /* 호버 및 포커스 시 텍스트 색상 */
+}
+
+/* 비활성화된 페이지 아이템 스타일 */
+.pagination-disabled .pagination-link {
+    color: #6c757d; /* 비활성화된 링크 색상 */
+    pointer-events: none; /* 클릭 비활성화 */
+}
+
+/* 활성 페이지 아이템 스타일 */
+.pagination-active .pagination-link {
+    background-color: #007bff; /* 활성화된 페이지 배경색 */
+    color: #fff; /* 활성화된 페이지 텍스트 색상 */
+}
+
+
+/* Existing CSS */
+
+.floating-div {
+    position: fixed;
+    bottom: -70px; /* Initially hide the div below the viewport */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    width: 30%; /* Adjust width as needed */
+    height: 60px; /* Adjust height as needed */
+    background-color: #6694d8;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out the content */
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s, bottom 0.3s; /* Transition for opacity and vertical movement */
+    padding: 0 20px; /* Add padding for spacing */
+    cursor: pointer;
+}
+
+.floating-div.show {
+    bottom: 20px; /* Move to the bottom of the viewport */
+    opacity: 1; /* Make it visible */
+}
+
+.floating-left {
+    flex: 1; /* Take up available space */
+    text-align: left; /* Align text to the left */
+    margin-left: 50px;
+    font-size: 20px;
+}
+
+.floating-right {
+    display: flex;
+    align-items: center; /* Center align content vertically */
+    justify-content: center; /* Center align content horizontally */
+    margin-right: 30px;
+    background: #ffffff;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px; /* Optional: for rounded corners */
+}
+
+.arrow {
+    width: 130px;
+    height: 30px;
+    background: #6e9ee8;
+    clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
 }

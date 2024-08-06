@@ -7,12 +7,10 @@ import com.example.secondhandlibrary.Book.Service.BookRepositoryService;
 import com.example.secondhandlibrary.Quote.DTO.BookFinderDTO;
 import com.example.secondhandlibrary.Quote.DTO.QuoteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -51,6 +49,18 @@ public class BookController {
         return "Book/recommendationsList";
     }
 
+    @GetMapping("/kdc/{kdc}")
+    public String showBooksByGenre(@PathVariable("kdc") String kdc,
+                                   @RequestParam(value = "page", defaultValue = "0") int page,
+                                   Model model){
+        Page<BookEntity> bookEntities = bookRepositoryService.findBooksByGenre(kdc ,page);
+        model.addAttribute("bookEntities", bookEntities);
+
+        return "index";
+    }
+
+    //-------------------------- 재고위치
+
     //알라딘 중고 재고 위치 확인
     @GetMapping("/used-inventory-check/{isbn}")
     public String usedInventoryCheck(@PathVariable("isbn") String isbn){
@@ -59,9 +69,10 @@ public class BookController {
 
         apiService.checkUsedStockInBranch(isbn);
 
-        return "Book/recommendationsList";
+        return "redirect:/";
     }
 
+    //---------------------------------------------------- 인용구
 
     //인용구작성할 도서 찾기 폼으로 이동
     @GetMapping("/BookFinder")

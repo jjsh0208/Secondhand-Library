@@ -7,6 +7,10 @@ import com.example.secondhandlibrary.Quote.Entity.QuoteEntity;
 import com.example.secondhandlibrary.Quote.Repository.QuoteRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -83,6 +87,11 @@ public class BookRepositoryService {
         return bookRepository.findAll();
     }
 
+    public Page<BookEntity> findAllBookEntity(int page){
+        Pageable pageable = PageRequest.of(page, 20, Sort.by("bookId"));
+        return bookRepository.findAll(pageable);
+    }
+
     public void createQuote(Long id, String author, String quote) {
         Optional<BookEntity> bookEntity = bookRepository.findById(id);
         if (bookEntity.isPresent()){
@@ -95,5 +104,10 @@ public class BookRepositoryService {
             quoteRepository.save(quoteEntity);
         }
 
+    }
+
+    public Page<BookEntity> findBooksByGenre(String kdc , int page) {
+        Pageable pageable = PageRequest.of(page, 20, Sort.by("bookId"));
+        return  bookRepository.findAllByKdcStartingWith(kdc , pageable);
     }
 }

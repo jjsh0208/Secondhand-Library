@@ -7,6 +7,11 @@ body {
     background: #97b4e1; /* 변경된 색상 코드 */
 }
 
+a{
+    text-decoration-line: none;
+}
+
+
 .container {
     width: 50%; /* 원하는 너비로 설정 */
     min-height: 90vh; /* 최소 높이 설정 */

@@ -57,124 +57,64 @@
     <section class="product-collection">
         <div class="main-content">
             <div class="button-group">
-                <button class="quantity-button">100</button>
-                <button class="quantity-button">200</button>
-                <button class="quantity-button">300</button>
-                <button class="quantity-button">400</button>
-                <button class="quantity-button">500</button>
-                <button class="quantity-button">600</button>
-                <button class="quantity-button">700</button>
-                <button class="quantity-button">800</button>
+                <a class="quantity-button" th:href="@{/book/kdc/8}">소설</a>
+                <a class="quantity-button" th:href="@{/book/kdc/1}">철학</a>
+                <a class="quantity-button" th:href="@{/book/kdc/7}">예술</a>
+                <a class="quantity-button" th:href="@{/book/kdc/2}">종교</a>
+                <a class="quantity-button" th:href="@{/book/kdc/4}">언어</a>
+                <a class="quantity-button" th:href="@{/book/kdc/3}">사회과학</a>
+                <a class="quantity-button" th:href="@{/book/kdc/5}">자연과학</a>
+                <a class="quantity-button" th:href="@{/book/kdc/6}">기술과학</a>
             </div>
             <div class="title-content">오늘의 인기 도서</div>
             <div class="product-grid">
-                <div class="product">
-                    <a href="#" class="product-link">
+                <div class="product" th:each="book : ${bookEntities}" >
+                    <a th:href="@{/book/{bookId}(bookId=${book.bookId})}" class="product-link">
                         <img
-                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
+                                th:src="${book.coverImg}"
                                 alt="Beach Bliss Flip-Flops"
                                 class="product-image"
                         />
                         <div class="product-info">
-                            <h3 class="product-title">Beach Bliss Flip-Flops</h3>
-                            <h4 class="product-price">$19.99</h4>
+                            <h3 class="product-title" th:text="${book.bookName}"></h3>
+                            <h4 class="product-price" th:text="'₩' + ${book.price}"></h4>
                         </div>
                     </a>
                 </div>
-                <div class="product">
-                    <a href="#" class="product-link">
-                        <img
-                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
-                                alt="Fruit Fusion Water Bottle"
-                                class="product-image"
-                        />
-                        <div class="product-info">
-                            <h3 class="product-title">Fruit Fusion Water Bottle</h3>
-                            <h4 class="product-price">$12.99</h4>
-                        </div>
-                    </a>
-                </div>
-                <div class="product">
-                    <a href="#" class="product-link">
-                        <img
-                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
-                                alt="Adventure-Ready Backpack"
-                                class="product-image"
-                        />
-                        <div class="product-info">
-                            <h3 class="product-title">Adventure-Ready Backpack</h3>
-                            <h4 class="product-price">$19.99</h4>
-                        </div>
-                    </a>
-                </div>
-                <div class="product">
-                    <a href="#" class="product-link">
-                        <img
-                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
-                                alt="Island Vibes Bluetooth Speaker"
-                                class="product-image"
-                        />
-                        <div class="product-info">
-                            <h3 class="product-title">Island Vibes Bluetooth Speaker</h3>
-                            <h4 class="product-price">$59.99</h4>
-                        </div>
-                    </a>
-                </div>
-                <div class="product">
-                    <a href="#" class="product-link">
-                        <img
-                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
-                                alt="Cozy Blanket"
-                                class="product-image"
-                        />
-                        <div class="product-info">
-                            <h3 class="product-title">Cozy Blanket</h3>
-                            <h4 class="product-price">$29.99</h4>
-                        </div>
-                    </a>
-                </div>
-                <div class="product">
-                    <a href="#" class="product-link">
-                        <img
-                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
-                                alt="Autumn Mug"
-                                class="product-image"
-                        />
-                        <div class="product-info">
-                            <h3 class="product-title">Autumn Mug</h3>
-                            <h4 class="product-price">$12.99</h4>
-                        </div>
-                    </a>
-                </div>
-                <div class="product">
-                    <a href="#" class="product-link">
-                        <img
-                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
-                                alt="Fall Fragrance Candle"
-                                class="product-image"
-                        />
-                        <div class="product-info">
-                            <h3 class="product-title">Fall Fragrance Candle</h3>
-                            <h4 class="product-price">$16.99</h4>
-                        </div>
-                    </a>
-                </div>
-                <div class="product">
-                    <a href="#" class="product-link">
-                        <img
-                                src="https://image.aladin.co.kr/product/26942/84/cover/k582730818_1.jpg"
-                                alt="Autumn Leaves Wall Art"
-                                class="product-image"
-                        />
-                        <div class="product-info">
-                            <h3 class="product-title">Autumn Leaves Wall Art</h3>
-                            <h4 class="product-price">$39.99</h4>
-                        </div>
-                    </a>
+            </div>
+
+            <div th:if="${!bookEntities.isEmpty()}">
+                <ul class="pagination">
+                    <li class="pagination-item pagination-prev" th:classappend="${!bookEntities.hasPrevious} ? 'pagination-disabled'">
+                        <a class="pagination-link"
+                           th:href="@{|?page=${bookEntities.number-1}|}">
+                            <span>이전</span>
+                        </a>
+                    </li>
+                    <li th:each="page: ${#numbers.sequence(0, bookEntities.totalPages-1)}"
+                        th:if="${page >= bookEntities.number-5 and page <= bookEntities.number+5}"
+                        th:classappend="${page == bookEntities.number} ? 'pagination-active'"
+                        class="pagination-item">
+                        <a th:text="${page}" class="pagination-link" th:href="@{|?page=${page}|}"></a>
+                    </li>
+                    <li class="pagination-item pagination-next" th:classappend="${!bookEntities.hasNext} ? 'pagination-disabled'">
+                        <a class="pagination-link" th:href="@{|?page=${bookEntities.number+1}|}">
+                            <span>다음</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="floating-div" class="floating-div">
+                <!-- Your content here -->
+                <div class="floating-left">내 취향의 책은 ?</div>
+                <div class="floating-right">
+                    <div class="arrow"></div>
                 </div>
             </div>
         </div>
     </section>
 </div>
+
+<script th:src="@{/js/index.js}"></script>
 </body>
 </html>
