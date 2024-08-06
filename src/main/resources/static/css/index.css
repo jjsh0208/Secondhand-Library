@@ -1,14 +1,16 @@
 @font-face {
-    font-family: 'MaruBuri';
-    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot);
-    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2) format("woff2"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.ttf) format("truetype");
+    font-family: 'goorm-sans-bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408@1.0/goorm-sans-bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
 }
-* {
 
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'MaruBuri',  sans-serif; /* 폰트 적용 */
+    font-family: 'goorm-sans-bold',  sans-serif; /* 폰트 적용 */
 }
 
 body {
@@ -75,15 +77,6 @@ body {
     position: relative; /* Make sure to set position relative for the pseudo-element */
 }
 
-.search-bar::after {
-    content: "";
-    position: absolute;
-    bottom: -17px; /* Adjust this value to control the distance from the bottom */
-    left: 0;
-    width: 100%;
-    max-width: 1200px; /* Same as the max-width of the .search-bar */
-    border-bottom: 1px solid black;
-}
 
 .search-input {
     flex: 1;
@@ -109,7 +102,10 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
 }
 
 .product-collection {
@@ -223,7 +219,6 @@ body {
     margin-top: 30px;
     display: flex;
     justify-content: center; /* 중앙 정렬 */
-
 }
 
 /* 페이지 아이템 스타일 */
@@ -235,7 +230,7 @@ body {
 .pagination-link {
     display: block; /* 링크 전체를 클릭 가능하게 설정 */
     text-decoration: none; /* 밑줄 제거 */
-    color: #007bff; /* 링크 색상 */
+    color: #6694d8; /* 링크 색상 */
     padding: 8px 16px; /* 링크 내부 여백 */
     border-radius: 4px; /* 링크 둥근 모서리 */
     font-size: 14px; /* 링크 텍스트 크기 */
@@ -246,7 +241,7 @@ body {
 .pagination-link:hover,
 .pagination-link:focus {
     background-color: #f0f0f0; /* 호버 및 포커스 시 배경색 */
-    color: #0056b3; /* 호버 및 포커스 시 텍스트 색상 */
+    color: #007bff; /* 호버 및 포커스 시 텍스트 색상 */
 }
 
 /* 비활성화된 페이지 아이템 스타일 */
@@ -310,6 +305,15 @@ body {
 .arrow {
     width: 130px;
     height: 30px;
+    position: relative;
+}
+
+.arrow::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background: #6e9ee8;
     clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+    border-radius: 5px; /* Adjust this value as needed */
 }
