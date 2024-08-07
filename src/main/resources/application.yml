@@ -14,6 +14,9 @@ spring:
   web:
     resources:
       static-locations: classpath:/static/
+  thymeleaf:
+    prefix: "classpath:/templates/"
+    suffix: ".html"
 
 kakao:
   client_id: "ec441b5cf247c7da0d792b6a80531331"

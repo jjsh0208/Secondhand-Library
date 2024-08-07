@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <div class="card">
-        <form class="search-form" th:action="@{/book/BookFinder}" method="post">
+        <form class="search-form" th:action="@{/quote/BookFinder}" method="post">
             <input
                     class="search-input"
                     name="bookName"
@@ -29,7 +29,7 @@
                     </div>
                     <h5 class="result-title" th:text="${book.bookName}"></h5>
                     <a
-                            th:href="@{'/book/' + ${book.bookId} + '/quoteForm'}"
+                            th:href="@{'/quote/' + ${book.bookId} + '/quoteForm'}"
                             class="btn"
                     >Button</a>
                 </div>

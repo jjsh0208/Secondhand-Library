@@ -48,6 +48,7 @@ body {
 }
 
 .header-controls {
+    position: relative; /* Add this to make sure .menu-box is positioned relative to this container */
     display: flex;
     align-items: center;
     gap: 16px;
@@ -316,4 +317,64 @@ body {
     background: #6e9ee8;
     clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
     border-radius: 5px; /* Adjust this value as needed */
+}
+
+
+.profile-button {
+    position: relative; /* For proper positioning of the profile menu */
+}
+
+.profile {
+    position: absolute; /* Position the profile menu absolutely */
+    top: 100%; /* Place it right below the header-controls */
+    right: 0; /* Align it to the right */
+    width: 250px; /* Set a width for the profile menu */
+    background: #fff; /* Background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1); /* Add shadow for better visibility */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Padding inside the profile menu */
+    display: none; /* Hide by default */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.profile.show {
+    display: block; /* Show when the 'show' class is added */
+}
+
+.profile-img {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    border-radius: 50%; /* Make the image round */
+    object-fit: cover; /* Ensure the image fits well within the circle */
+    position: absolute; /* Position the image inside the profile menu */
+    top: 16px; /* Distance from the top */
+    left: 16px; /* Distance from the left */
+}
+
+.profile-email {
+    margin: 16px 0 0 80px; /* Adjust margin to position it properly */
+    font-size: 14px;
+    color: #333;
+}
+
+.profile-buttons {
+    margin-top: 80px; /* Push the buttons down below the profile image and email */
+}
+
+.profile-button {
+    display: block; /* Make each button occupy the full width */
+    margin: 8px 0; /* Space between buttons */
+    padding: 10px;
+    text-align: center;
+    background: #f1f1f1; /* Background color */
+    border: 1px solid #ddd; /* Border color */
+    border-radius: 4px; /* Rounded corners for buttons */
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Text color */
+    transition: background-color 0.3s, color 0.3s; /* Transition effects */
+}
+
+.profile-button:hover {
+    background: #e1e1e1; /* Hover background color */
+    color: #000; /* Hover text color */
 }

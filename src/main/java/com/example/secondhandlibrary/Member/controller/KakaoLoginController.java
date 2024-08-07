@@ -24,6 +24,7 @@ public class KakaoLoginController {
     public ResponseEntity<?> callback(@RequestParam("code") String code) {
         String accessToken = kakaoService.getAccessTokenFromKakao(code);
         System.out.println("발급받은 토큰 : " + accessToken);
+        kakaoService.getUserProfile(accessToken);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

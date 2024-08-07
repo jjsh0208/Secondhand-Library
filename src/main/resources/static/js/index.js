@@ -20,3 +20,5 @@ document.addEventListener('DOMContentLoaded', function () {
     // Check scroll position on scroll events
     window.addEventListener('scroll', checkScroll);
 });
+
+

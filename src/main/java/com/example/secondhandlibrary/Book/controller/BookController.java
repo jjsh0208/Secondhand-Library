@@ -74,39 +74,39 @@ public class BookController {
 
     //---------------------------------------------------- 인용구
 
-    //인용구작성할 도서 찾기 폼으로 이동
-    @GetMapping("/BookFinder")
-    public String quoteBookFinder(Model model){
-        List<BookEntity> bookEntities = bookRepositoryService.getAllBooks();
-        model.addAttribute("bookEntities", bookEntities);
-        return  "Quote/BookFinder";
-    }
-
-    @PostMapping("/BookFinder")
-    public String quoteBookFinder(BookFinderDTO bookFinderDTO, Model model){
-        List<BookEntity> bookEntities =  bookRepositoryService.bookFinder(bookFinderDTO.getBookName());
-        if (bookEntities != null){
-            model.addAttribute("bookEntities", bookEntities);
-            return  "Quote/BookFinder";
-        }
-        return "Quote/BookFinder";
-    }
-
-    @GetMapping("/{bookId}/quoteForm")
-    public String quoteForm(@PathVariable("bookId") Long id , Model model){
-        BookEntity bookEntity = bookRepositoryService.getBook(id);
-        if (bookEntity != null){
-            model.addAttribute("book",bookEntity);
-            return "Quote/QuoteForm";
-        }
-        return  "Quote/BookFinder";
-    }
-    @PostMapping("/{bookId}/quoteForm")
-    public String createQuote(@PathVariable("bookId") Long id , QuoteDTO quoteDTO){
-        System.out.println(quoteDTO.getQuote());
-        System.out.println(quoteDTO.getAuthor());
-        bookRepositoryService.createQuote(id , quoteDTO.getAuthor(), quoteDTO.getQuote());
-        return  "Quote/BookFinder"; //나중에 마이페이지로 이동
-    }
+//    //인용구작성할 도서 찾기 폼으로 이동
+//    @GetMapping("/BookFinder")
+//    public String quoteBookFinder(Model model){
+//        List<BookEntity> bookEntities = bookRepositoryService.getAllBooks();
+//        model.addAttribute("bookEntities", bookEntities);
+//        return  "Quote/BookFinder";
+//    }
+//
+//    @PostMapping("/BookFinder")
+//    public String quoteBookFinder(BookFinderDTO bookFinderDTO, Model model){
+//        List<BookEntity> bookEntities =  bookRepositoryService.bookFinder(bookFinderDTO.getBookName());
+//        if (bookEntities != null){
+//            model.addAttribute("bookEntities", bookEntities);
+//            return  "Quote/BookFinder";
+//        }
+//        return "Quote/BookFinder";
+//    }
+//
+//    @GetMapping("/{bookId}/quoteForm")
+//    public String quoteForm(@PathVariable("bookId") Long id , Model model){
+//        BookEntity bookEntity = bookRepositoryService.getBook(id);
+//        if (bookEntity != null){
+//            model.addAttribute("book",bookEntity);
+//            return "Quote/QuoteForm";
+//        }
+//        return  "Quote/BookFinder";
+//    }
+//    @PostMapping("/{bookId}/quoteForm")
+//    public String createQuote(@PathVariable("bookId") Long id , QuoteDTO quoteDTO){
+//        System.out.println(quoteDTO.getQuote());
+//        System.out.println(quoteDTO.getAuthor());
+//        bookRepositoryService.createQuote(id , quoteDTO.getAuthor(), quoteDTO.getQuote());
+//        return  "Quote/BookFinder"; //나중에 마이페이지로 이동
+//    }
 
 }
