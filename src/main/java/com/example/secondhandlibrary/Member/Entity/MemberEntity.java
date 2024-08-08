@@ -18,12 +18,12 @@ public class MemberEntity {
     private Long MemberId;
 
     @Column
-    private String Email;
+    private Long authID ;
 
     @Column
-    private String userName;
+    private String nickName;
 
     @Column
-    private String accessToken;
+    private String profile_img;
 
 }
